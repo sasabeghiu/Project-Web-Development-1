@@ -1,0 +1,91 @@
+/* Product cards */
+body {
+  background-color: black;
+}
+
+.product-card {
+  box-shadow: 1px 1px 4px 0 rgb(30 30 30 / 16%);
+}
+
+.product-card img {
+  margin: auto;
+  display: block;
+  max-width: 150px;
+  max-height: 100px;
+  margin-bottom: 10px;
+}
+
+.img-fluid {
+  width: 300px;
+}
+
+.displayinline {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+/* Making text inside the cards a bit better looking */
+
+.product-card p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.product-card small {
+  color: #b3b3b3;
+  font-size: 0.8rem;
+}
+
+/* Social icons */
+
+.fa-brands:hover {
+  color: #929292;
+}
+/* bg video */
+
+#bg-video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translate(-50%, -50%);
+}
+
+#card_count {
+  text-align: center;
+  padding: 0 0.9rem 0.1rem 0.9rem;
+  border-radius: 3rem;
+}
+
+
+.shopping-cart {
+  padding: 3% 0;
+}
+
+.cart-items + .cart-items {
+  padding: 2% 0;
+}
+
+.price-details h6{
+  padding: 3% 2%;
+}
+
+.logoheader {
+ max-width: 150px;
+ height: 40px; 
+}
+/* Demonstrating a media query. This can be solved without one by the way */
+
+@media screen and (max-width: 768px) {
+  .product-card img {
+    display: block;
+    width: 85px;
+    margin-right: 10px;
+    margin-bottom: 0px;
+    height: auto;
+    float: left;
+  }
+}
