@@ -1,9 +1,9 @@
 # Web Development 1 Project - UNIT240
 
-## URL: change
+## URL: [UNIT240](https://646415.000webhostapp.com) 
 (Database query is included in the project and runs on first docker-compose up)
 
-#### URL Endpoint: [Residents](http://localhost/api/resident)
+#### URL Endpoint: [Residents](http://localhost/api/resident) or [Residents](https://646415.000webhostapp.com/api/resident) 
 
 
 ### Login Details:
