@@ -3,7 +3,7 @@
 ## URL: change
 (Database query is included in the project and runs on first docker-compose up)
 
-## URL Endpoint: localhost/api/resident
+## URL Endpoint: [Residents](localhost/api/resident)
 
 
 ### Login Details:
