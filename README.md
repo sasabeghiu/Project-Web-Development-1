@@ -14,7 +14,8 @@ User with role Admin:
 - Password = admin
 
 You can either use the provided test account or create your own account.
+You can not create an account with the role admin, only user.
 
-NOTE: Email does not actually have to exist. You can not create an account with the role admin, only user.
+NOTE: Email does not actually have to exist. 
 ```
 <br>
