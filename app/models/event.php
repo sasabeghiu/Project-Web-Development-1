@@ -8,12 +8,12 @@ class Event
     private string $datetime;
     private string $location;
     private int $ticketsAvailable;
-    private int $price; 
+    private int $price;
     private int $product_id;
 
     /**
      * Get the value of id
-     */ 
+     */
     public function getId()
     {
         return $this->id;
@@ -23,7 +23,7 @@ class Event
      * Set the value of id
      *
      * @return  self
-     */ 
+     */
     public function setId($id)
     {
         $this->id = $id;
@@ -33,7 +33,7 @@ class Event
 
     /**
      * Get the value of name
-     */ 
+     */
     public function getName()
     {
         return $this->name;
@@ -43,7 +43,7 @@ class Event
      * Set the value of name
      *
      * @return  self
-     */ 
+     */
     public function setName($name)
     {
         $this->name = $name;
@@ -53,7 +53,7 @@ class Event
 
     /**
      * Get the value of description
-     */ 
+     */
     public function getDescription()
     {
         return $this->description;
@@ -63,7 +63,7 @@ class Event
      * Set the value of description
      *
      * @return  self
-     */ 
+     */
     public function setDescription($description)
     {
         $this->description = $description;
@@ -73,7 +73,7 @@ class Event
 
     /**
      * Get the value of photo
-     */ 
+     */
     public function getPhoto()
     {
         return $this->photo;
@@ -83,7 +83,7 @@ class Event
      * Set the value of photo
      *
      * @return  self
-     */ 
+     */
     public function setPhoto($photo)
     {
         $this->photo = $photo;
@@ -93,7 +93,7 @@ class Event
 
     /**
      * Get the value of datetime
-     */ 
+     */
     public function getDatetime()
     {
         return $this->datetime;
@@ -103,7 +103,7 @@ class Event
      * Set the value of datetime
      *
      * @return  self
-     */ 
+     */
     public function setDatetime($datetime)
     {
         $this->datetime = $datetime;
@@ -113,7 +113,7 @@ class Event
 
     /**
      * Get the value of location
-     */ 
+     */
     public function getLocation()
     {
         return $this->location;
@@ -123,7 +123,7 @@ class Event
      * Set the value of location
      *
      * @return  self
-     */ 
+     */
     public function setLocation($location)
     {
         $this->location = $location;
@@ -133,7 +133,7 @@ class Event
 
     /**
      * Get the value of ticketsAvailable
-     */ 
+     */
     public function getTicketsAvailable()
     {
         return $this->ticketsAvailable;
@@ -143,7 +143,7 @@ class Event
      * Set the value of ticketsAvailable
      *
      * @return  self
-     */ 
+     */
     public function setTicketsAvailable($ticketsAvailable)
     {
         $this->ticketsAvailable = $ticketsAvailable;
@@ -153,7 +153,7 @@ class Event
 
     /**
      * Get the value of price
-     */ 
+     */
     public function getPrice()
     {
         return $this->price;
@@ -163,7 +163,7 @@ class Event
      * Set the value of price
      *
      * @return  self
-     */ 
+     */
     public function setPrice($price)
     {
         $this->price = $price;
@@ -173,7 +173,7 @@ class Event
 
     /**
      * Get the value of product_id
-     */ 
+     */
     public function getProduct_id()
     {
         return $this->product_id;
@@ -183,7 +183,7 @@ class Event
      * Set the value of product_id
      *
      * @return  self
-     */ 
+     */
     public function setProduct_id($product_id)
     {
         $this->product_id = $product_id;

@@ -55,7 +55,6 @@ class MerchandiseRepository extends RepositoryDemo
         try {
             $stmt = $this->connection->prepare("UPDATE merchandise SET name = ?, description = ?, photo = ?, price = ?, size = ?, stock = ?, product_id = ? WHERE id = ?");
             $stmt->execute([$merchandise->getName(), $merchandise->getDescription(), $merchandise->getPhoto(), $merchandise->getPrice(), $merchandise->getSize(), $merchandise->getStock(), $merchandise->getProduct_id(), $id]);
-
         } catch (PDOException $e) {
             echo $e;
         }

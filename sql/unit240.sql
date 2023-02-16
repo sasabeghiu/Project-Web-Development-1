@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Generation Time: Jan 21, 2023 at 11:17 PM
+-- Generation Time: Feb 16, 2023 at 05:33 PM
 -- Server version: 10.6.5-MariaDB-1:10.6.5+maria~focal
 -- PHP Version: 7.4.26
 
@@ -44,7 +44,7 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`id`, `name`, `description`, `photo`, `datetime`, `location`, `ticketsAvailable`, `price`, `product_id`) VALUES
-(1, 'UNIT240 Birthday Party: DJ Motchito, DJ Paliyo, DJ Hanto and others', 'Our first celebration of UNIT240 Birthday. Come join us in Amsterdam at one of the best techno venues for a crazy night. Only a few weeks left before we can rave like maniacs again. We\'re already preparing the laser show combined with our visuals, you really are not ready for what is coming.', '/img/event1.jpg', '2023-01-19 23:00:00', 'RADION, Amsterdam, Netherlands', 200, 20, 6),
+(1, 'UNIT240: DJ Motchito, DJ Paliyo, DJ Hanto', 'Our celebration of UNIT240 Birthday. Come join us in Amsterdam at one of the best techno venues for a crazy night. Only a few weeks left before we can rave like maniacs again. We\'re already preparing the laser show combined with our visuals, you really are not ready for what is coming.', '/img/event1.jpg', '2023-01-19 23:00:00', 'RADION, Amsterdam, Netherlands', 200, 20, 6),
 (2, 'UNIT240 Christmas Rave', 'Attendees can expect to dance the night away to thumping beats and enjoy the holiday spirit with a techno twist. Our Christmas techno rave promises to be a unique and unforgettable celebration of the holiday season. Go get your tickets before they sell out!', '/img/event2.png', '2023-01-31 19:00:00', 'RADION, Amsterdam, Netherlands', 200, 30, 7),
 (11, 'UNIT240 Birthday Party', 'Our second celebration of UNIT240 Birthday. Come join us in Haarlem at Patronaat for a crazy night. Only a few weeks left before we can rave like maniacs again. We\'re already preparing the laser show combined with our visuals, you really are not ready for what is coming.', '/img/event3.png', '2023-04-20 18:00:00', 'Patronaat, Haarlem, Netherlands', 100, 25, 8);
 
@@ -100,8 +100,10 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `user_id`, `user_email`, `user_firstname`, `user_lastname`, `user_address`, `user_country`, `user_zipcode`, `order_totalprice`, `order_createdat`) VALUES
-(29, 77, 'fyle@mailinator.com', 'Rose', 'Peck', 'Proident vero velit', 'Dolores quia ipsa q', '48817', 50, '2023-01-21 20:20:39'),
-(30, 78, 'wyhuh@mailinator.com', 'Grady', 'Vincent', 'Nisi ad dolores aute', 'Quis velit velit al', '75691', 190, '2023-01-21 20:21:21');
+(46, 78, 'alexandrubeghiu0@gmail.com', 'Alexandru', 'Beghiu', 'Schoonzichtlaan 8 A', 'Netherlands', '2015 CL', 100, '2023-02-16 17:04:27'),
+(47, 77, 'cepoxuwu@mailinator.com', 'Sean', 'Maynard', 'Kleinstraat 5', 'Netherlands', '2015 CV', 115, '2023-02-16 17:06:24'),
+(48, 77, 'demas@mailinator.com', 'Teagan', 'Middleton', 'Streetteerts', 'Belgium', '2000 YR', 70, '2023-02-16 17:07:34'),
+(49, 77, 'wyvi@mailinator.com', 'Mason', 'Sims', 'Doesntmatter 5', 'Italy', '7289 AF', 25, '2023-02-16 17:15:58');
 
 -- --------------------------------------------------------
 
@@ -123,16 +125,19 @@ CREATE TABLE `order_items` (
 --
 
 INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `product_qty`, `product_price`, `created_at`) VALUES
-(30, 29, 6, 1, 20, '2023-01-21 20:20:39'),
-(31, 29, 7, 1, 30, '2023-01-21 20:20:39'),
-(32, 30, 6, 1, 20, '2023-01-21 20:21:21'),
-(33, 30, 7, 1, 30, '2023-01-21 20:21:21'),
-(34, 30, 8, 1, 25, '2023-01-21 20:21:21'),
-(35, 30, 1, 1, 15, '2023-01-21 20:21:21'),
-(36, 30, 2, 1, 20, '2023-01-21 20:21:21'),
-(37, 30, 3, 1, 20, '2023-01-21 20:21:21'),
-(38, 30, 4, 1, 30, '2023-01-21 20:21:21'),
-(39, 30, 5, 1, 30, '2023-01-21 20:21:21');
+(80, 46, 3, 1, 20, '2023-02-16 17:04:27'),
+(81, 46, 4, 1, 30, '2023-02-16 17:04:27'),
+(82, 46, 6, 1, 20, '2023-02-16 17:04:27'),
+(83, 46, 7, 1, 30, '2023-02-16 17:04:27'),
+(84, 47, 1, 1, 15, '2023-02-16 17:06:24'),
+(85, 47, 2, 1, 20, '2023-02-16 17:06:24'),
+(86, 47, 3, 1, 20, '2023-02-16 17:06:24'),
+(87, 47, 5, 1, 30, '2023-02-16 17:06:24'),
+(88, 47, 4, 1, 30, '2023-02-16 17:06:24'),
+(89, 48, 7, 1, 30, '2023-02-16 17:07:34'),
+(90, 48, 2, 1, 20, '2023-02-16 17:07:34'),
+(91, 48, 3, 1, 20, '2023-02-16 17:07:34'),
+(92, 49, 8, 1, 25, '2023-02-16 17:15:58');
 
 -- --------------------------------------------------------
 
@@ -257,25 +262,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `merchandise`
 --
 ALTER TABLE `merchandise`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -287,13 +292,13 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `resident`
 --
 ALTER TABLE `resident`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

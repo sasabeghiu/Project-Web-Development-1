@@ -54,8 +54,7 @@ class EventRepository extends RepositoryDemo
     {
         try {
             $stmt = $this->connection->prepare("UPDATE events SET name = ?, description = ?, photo = ?, datetime = ?, location = ?, ticketsAvailable = ?, price = ?, product_id = ? WHERE id = ?");
-            $stmt->execute([$event->getName(), $event->getDescription(), $event->getPhoto(), $event->getDatetime(), $event->getLocation(), $event->getTicketsAvailable(), $event->getPrice(), $event->getProduct_id() ,$id]);
-
+            $stmt->execute([$event->getName(), $event->getDescription(), $event->getPhoto(), $event->getDatetime(), $event->getLocation(), $event->getTicketsAvailable(), $event->getPrice(), $event->getProduct_id(), $id]);
         } catch (PDOException $e) {
             echo $e;
         }

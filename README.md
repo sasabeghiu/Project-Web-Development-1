@@ -39,6 +39,5 @@ as well as view all the orders from customers in the CMS.
 2. Change quantity and totalprice when adding to shopping cart/placing an order.
 !3. Decrease quantity from products table when placing an order.
 4. Add an if-else statement in dbconfig to use the credentials depending on localhost/hosted
-!5. Display order_items inside an order (list of order items in order class?)
-!6
+5. Display order_items inside an order (list of order items in order class?)
 ```

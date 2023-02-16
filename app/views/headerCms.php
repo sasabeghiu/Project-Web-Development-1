@@ -1,15 +1,11 @@
 <?php
-require_once __DIR__ . '/../services/userservice.php';
-$userservice = new UserService();
+if (!isset($_SESSION)) {
+  session_start();
+}
 
-session_start();
-
-//redirect to login page if user not logged in
 if (!isset($_SESSION["user"])) {
   header("Location: /user/login");
-} else
-  $user = $userservice->getUserByID($_SESSION["user"]);
-if ($user->getRole() == "admin") {
+} else if ($_SESSION["userrole"] == "admin") {
 ?>
 
   <!DOCTYPE html>
@@ -58,7 +54,7 @@ if ($user->getRole() == "admin") {
           <ul class="navbar-nav">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Logged in as: <?= $user->getUsername() ?> (<?= $user->getId() ?>)
+                Logged in as: <?= $_SESSION["test"] ?> (<?= $_SESSION["user"] ?>)
               </a>
               <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                 <li><a class="dropdown-item" href="/home/cart">

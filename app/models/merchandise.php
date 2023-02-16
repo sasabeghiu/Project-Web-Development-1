@@ -5,7 +5,7 @@ class Merchandise
     private string $name;
     private string $description;
     private string $photo;
-    private int $price; 
+    private int $price;
     private string $size;
     private int $stock;
     private int $product_id;
@@ -152,7 +152,7 @@ class Merchandise
 
     /**
      * Get the value of product_id
-     */ 
+     */
     public function getProduct_id()
     {
         return $this->product_id;
@@ -162,7 +162,7 @@ class Merchandise
      * Set the value of product_id
      *
      * @return  self
-     */ 
+     */
     public function setProduct_id($product_id)
     {
         $this->product_id = $product_id;

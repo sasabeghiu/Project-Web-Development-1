@@ -55,7 +55,6 @@ class ResidentRepository extends RepositoryDemo
         try {
             $stmt = $this->connection->prepare("UPDATE resident SET name = ?, description = ?, photo = ? WHERE id = ?");
             $stmt->execute([$resident->getName(), $resident->getDescription(), $resident->getPhoto(), $id]);
-
         } catch (PDOException $e) {
             echo $e;
         }

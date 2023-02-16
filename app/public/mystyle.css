@@ -60,7 +60,6 @@ body {
   border-radius: 3rem;
 }
 
-
 .shopping-cart {
   padding: 3% 0;
 }
@@ -69,13 +68,13 @@ body {
   padding: 2% 0;
 }
 
-.price-details h6{
+.price-details h6 {
   padding: 3% 2%;
 }
 
 .logoheader {
- max-width: 150px;
- height: 40px; 
+  max-width: 150px;
+  height: 40px;
 }
 /* Demonstrating a media query. This can be solved without one by the way */
 

@@ -12,6 +12,8 @@ class OrderController
 
     public function index()
     {
+        session_start();
+        $model = $this->orderService->getOrdersByUserId($_SESSION['user']);
         require __DIR__ . '/../views/home/myorders.php';
     }
 

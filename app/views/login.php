@@ -1,22 +1,3 @@
-<?php
-session_start();
-$userService = new UserService();
-if (isset($_POST['login'])) {
-    $username = htmlspecialchars($_POST['username']);
-    $password = htmlspecialchars($_POST['password']);
-    if ($username != "" && $password != "") {
-        $userService->checkUsernamePassword($username, $password);
-    } else {
-        echo "Invalid username or password. Try again.";
-    }
-    $user = $userService->getUserByName($username);
-    $_SESSION["user"] = $user->getId();
-    //echo "works "  . $_SESSION['user'];
-    header("Location: /home");
-    exit;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 

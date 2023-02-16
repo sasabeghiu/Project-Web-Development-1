@@ -1,9 +1,7 @@
 <?php
 include __DIR__ . '/../header.php';
-
-$productService = new ProductService();
-$orderService = new OrderService();
 ?>
+
 <style>
     .bd-placeholder-img {
         font-size: 1.125rem;
@@ -60,6 +58,7 @@ $orderService = new OrderService();
         width: 100px;
     }
 </style>
+
 <div class="container py-5">
     <div class="text-center mb-5">
         <h2 class="text-light text-center">Checkout form</h2>
@@ -83,11 +82,9 @@ $orderService = new OrderService();
                     </span>
                 </h4>
                 <?php
-                $total = 0;
-                if (isset($_SESSION['shopping-cart'])) {
-                    $product_id = array_column($_SESSION['shopping-cart'], 'product_id');
-                    foreach ($product_id as $id) {
-                        $product = $productService->getOne($id);
+                $_SESSION["total"] = 0;
+                if (isset($_SESSION['shopping-cart']) && count($_SESSION['shopping-cart']) > 0) {
+                    foreach ($products as $product) {
                 ?>
                         <ul class="list-group mb-3">
                             <li class="list-group-item d-flex justify-content-between lh-sm">
@@ -102,13 +99,13 @@ $orderService = new OrderService();
                             </li>
                     <?php
                         $unitPrice = $product->getProduct_price();
-                        $total = $total + $unitPrice;
+                        $_SESSION["total"] += $unitPrice;
                     }
                 }
                     ?>
                     <li class="list-group-item d-flex justify-content-between">
                         <span>Total (EUR)</span>
-                        <strong>&euro;<?= $total ?> </strong>
+                        <strong>&euro;<?= $_SESSION["total"] ?> </strong>
                     </li>
                         </ul>
             </div>
@@ -161,75 +158,11 @@ $orderService = new OrderService();
                         </div>
                     </div>
                     <hr class="my-4">
-                    <button class="w-100 btn btn-primary btn-lg" type="submit">Place order</button>
+                    <button class="w-100 btn btn-primary btn-lg" type="submit" name="placeOrder">Place order</button>
                 </form>
             </div>
         </div>
     </form>
-
-    <?php
-    if (isset($_POST["firstName"]) != "") {
-        $user_id = $_SESSION["user"];
-        $user_email = htmlspecialchars($_POST["email"]);
-        $user_firstname = htmlspecialchars($_POST["firstName"]);
-        $user_lastname = htmlspecialchars($_POST["lastName"]);
-        $user_address = htmlspecialchars($_POST["address"]);
-        $user_country = htmlspecialchars($_POST["country"]);
-        $user_zipcode = htmlspecialchars($_POST["zipCode"]);
-        $order_totalprice = $total;
-
-        $order = new Order();
-
-        $order->setUser_id($user_id);
-        $order->setUser_email($user_email);
-        $order->setUser_firstname($user_firstname);
-        $order->setUser_lastname($user_lastname);
-        $order->setUser_address($user_address);
-        $order->setUser_country($user_country);
-        $order->setUser_zipcode($user_zipcode);
-        $order->setOrder_totalprice($order_totalprice);
-
-
-        if (isset($_SESSION['shopping-cart'])) {
-            $count = count($_SESSION['shopping-cart']);
-            if ($count > 0) {
-                $orderService->placeOrder($order);
-            }
-        } else {
-            echo "<script>alert('You can not place an empty order. Add something to shopping cart. ')</script>";
-            echo "<script>window.location = '/home/cart'</script>";
-        }
-
-        if ($orderService) {
-            if (isset($_SESSION['shopping-cart'])) {
-                $product_id = array_column($_SESSION['shopping-cart'], 'product_id');
-                foreach ($product_id as $id) {
-                    $product = $productService->getOne($id);
-
-                    $orderid = htmlspecialchars($order->getOrder_id());
-                    $productid = htmlspecialchars($product->getProduct_id());
-                    $productqty = 1;
-                    $productprice = htmlspecialchars($product->getProduct_price());
-
-                    $orderItem = new Order_Item();
-
-                    $orderItem->setOrder_id($orderid);
-                    $orderItem->setProduct_id($productid);
-                    $orderItem->setProduct_qty($productqty);
-                    $orderItem->setProduct_price($productprice);
-
-                    $orderService->addOrderItem($orderItem);
-                }
-                unset($_SESSION['shopping-cart']);
-                echo "<script>alert('You have placed an order successfully. ')</script>";
-                echo "<script>window.location = '/order'</script>";
-            }
-        } else {
-            echo "<script>alert('There was an error while placing the order, please try again. ')</script>";
-            echo "<script>window.location = '/home/checkout'</script>";
-        }
-    }
-    ?>
 
     <?php
     include __DIR__ . '/../footer.php';

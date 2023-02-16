@@ -1,6 +1,5 @@
 <?php
 include __DIR__ . '/../header.php';
-$orderService = new OrderService();
 ?>
 
 <div class="album py-5">
@@ -8,7 +7,6 @@ $orderService = new OrderService();
         <h2 class="text-light text-center">My orders</h2>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             <?php
-            $model = $orderService->getOrdersByUserId($_SESSION["user"]);
             if ($model) {
                 foreach ($model as $order) {
             ?>

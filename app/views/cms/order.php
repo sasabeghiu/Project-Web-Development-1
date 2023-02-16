@@ -1,9 +1,9 @@
 <?php
-$orderService = new OrderService();
 include __DIR__ . '/../headerCms.php';
 ?>
 
 <h1 class="text-center text-light">Read Orders</h1>
+
 <!-- display data -->
 <table class="table table-striped table-dark table-responsive">
     <thead>
@@ -18,7 +18,6 @@ include __DIR__ . '/../headerCms.php';
             <th scope="col">Zip Code</th>
             <th scope="col">Total Price</th>
             <th scope="col">Created at</th>
-            <th scope="col" colspan="2" class="text-center">Order Items?</th>
         </tr>
     </thead>
     <tbody>
@@ -38,15 +37,13 @@ include __DIR__ . '/../headerCms.php';
                 <td><?= $order->getUser_zipcode() ?></td>
                 <td><?= $order->getOrder_totalprice() ?> &euro;</td>
                 <td><?= $timestamp ?></td>
-                <td>x</td>
-                <td>items</td>
             </tr>
         <?php
         }
         ?>
     </tbody>
 </table>
-<!-- display data finish -->
+
 <?php
 include __DIR__ . '/../footer.php';
 ?>

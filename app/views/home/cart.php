@@ -1,18 +1,5 @@
 <?php
 include __DIR__ . '/../header.php';
-$productService = new ProductService();
-
-if (isset($_POST['remove'])) {
-    if ($_GET['action'] == 'remove') {
-        foreach ($_SESSION['shopping-cart'] as $key => $value) {
-            if ($value["product_id"] == $_GET['id']) {
-                unset($_SESSION['shopping-cart'][$key]);
-                echo "<script>alert('Product has been removed from your shopping cart. ')</script>";
-                echo "<script>window.location = '/home/cart'</script>";
-            }
-        }
-    }
-}
 ?>
 
 <div class="containter-fluid py-5">
@@ -24,10 +11,8 @@ if (isset($_POST['remove'])) {
             <div class="shopping-cart">
                 <?php
                 $total = 0;
-                if (isset($_SESSION['shopping-cart'])) {
-                    $product_id = array_column($_SESSION['shopping-cart'], 'product_id');
-                    foreach ($product_id as $id) {
-                        $product = $productService->getOne($id);
+                if (isset($_SESSION['shopping-cart']) && count($_SESSION['shopping-cart']) > 0) {
+                    foreach ($products as $product) {
                 ?>
                         <form action="/home/cart?action=remove&id=<?= $product->getProduct_id() ?>" method="post" class="cart-items product-data">
                             <div class="">
@@ -39,8 +24,6 @@ if (isset($_POST['remove'])) {
                                         <h5 class="pt-2 text-white"><?= $product->getProduct_name() ?></h5>
                                         <small class="text-secondary text-white">Available stock: <?= $product->getProduct_stock() ?></small>
                                         <h5 class="pt-2 text-white">Price per unit: &euro; <label id="pricePERunit"><?php echo $product->getProduct_price(); ?></label></h5>
-                                        <!-- <h5 class="pt-2">Price in total: &euro; <label id="priceINtotal"><?php //echo $product->getProduct_price(); 
-                                                                                                                ?></label></h5> -->
                                         <button type="submit" class="btn btn-danger" name="remove">Remove product from cart</button>
                                     </div>
                                     <div class="col-md-3 py-5">

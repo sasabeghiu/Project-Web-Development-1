@@ -1,15 +1,11 @@
 <?php
-require_once __DIR__ . '/../services/userservice.php';
-$userservice = new UserService();
+if (!isset($_SESSION)) {
+  session_start();
+}
 
-session_start();
-
-//redirect to login page if user not logged in
 if (!isset($_SESSION["user"])) {
   header("Location: /user/login");
 }
-
-$user = $userservice->getUserByID($_SESSION["user"]);
 ?>
 
 <!DOCTYPE html>
@@ -49,9 +45,9 @@ $user = $userservice->getUserByID($_SESSION["user"]);
           <li class="nav-item">
             <a class="nav-link text-light" href="/home/about">About</a>
           </li>
-          <!--  -->
+          <!-- access cms only if admin -->
           <?
-          if ($user->getRole() == "admin") {
+          if ($_SESSION["userrole"] == "admin") {
           ?>
             <li class="nav-item">
               <a class="nav-link text-light" href="/event/cms">CMS</a>
@@ -59,7 +55,6 @@ $user = $userservice->getUserByID($_SESSION["user"]);
           <?
           }
           ?>
-          <!--  -->
         </ul>
       </div>
 
@@ -67,7 +62,7 @@ $user = $userservice->getUserByID($_SESSION["user"]);
         <ul class="navbar-nav">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Logged in as: <?= $user->getUsername() ?> (<?= $user->getId() ?>)
+              Logged in as: <?= $_SESSION["test"] ?> (<?= $_SESSION["user"] ?>)
             </a>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
               <li><a class="dropdown-item" href="/home/cart">

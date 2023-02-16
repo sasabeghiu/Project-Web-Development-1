@@ -79,13 +79,14 @@ class UserRepository extends RepositoryDemo
 
             $result = $this->verifyPassword($password, $user->getPassword());
 
-            if (!$result)
-                return false;
+            if (!$result) {
+                throw new Exception("Invalid login");
+            } else {
+                // do not pass the password hash
+                $user->setPassword("");
 
-            // do not pass the password hash
-            $user->setPassword("");
-
-            return $user;
+                return $user;
+            }
         } catch (PDOException $e) {
             echo $e;
         }
